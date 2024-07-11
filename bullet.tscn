@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjhyvt5hjgfd6"]
+
+[ext_resource type="Script" path="res://bullet.gd" id="1_3m2gg"]
+[ext_resource type="Texture2D" uid="uid://2rdggxwna471" path="res://player/ammo.png" id="1_wrd5q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_23ort"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wrd5q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mv8ui"]
+size = Vector2(67.829, 17.6552)
+
+[node name="bullet" type="Area2D" groups=["bullets"]]
+position = Vector2(-2, -2)
+collision_layer = 8
+collision_mask = 81
+script = ExtResource("1_3m2gg")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, 2)
+scale = Vector2(0.067627, 0.0644531)
+sprite_frames = SubResource("SpriteFrames_23ort")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(3.25, 2)
+scale = Vector2(0.228516, 0.226563)
+shape = SubResource("RectangleShape2D_mv8ui")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(4, 2)
+scale = Vector2(1.4, 0.8)
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

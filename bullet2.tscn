@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1uoet8xl86y2"]
+
+[ext_resource type="Script" path="res://bullet2.gd" id="1_qny41"]
+[ext_resource type="Texture2D" uid="uid://dcajbdkyld40v" path="res://player/ammoLeft.png" id="2_hs4a2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cp2n"]
+atlas = ExtResource("2_hs4a2")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_maqt7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cp2n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atvu5"]
+size = Vector2(19.5, 6)
+
+[node name="bullet2" type="CharacterBody2D" groups=["bullet2"]]
+position = Vector2(1, -27)
+collision_layer = 512
+collision_mask = 256
+script = ExtResource("1_qny41")
+
+[node name="spriteBullet" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.125, 1.25)
+scale = Vector2(0.0791016, 0.0878906)
+sprite_frames = SubResource("SpriteFrames_maqt7")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0.75, 1)
+shape = SubResource("RectangleShape2D_atvu5")

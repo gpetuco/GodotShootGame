@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://breul7yf0upp7"]
+
+[ext_resource type="Script" path="res://hitbox.gd" id="1_4yopq"]
+[ext_resource type="AudioStream" uid="uid://b63yfdpkiray8" path="res://player/Player/Metal-Slug/Metal_Slug/Sounds/Death.wav" id="2_eplsk"]
+
+[node name="hitbox" type="Area2D"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_4yopq")
+
+[node name="death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_eplsk")
+volume_db = 3.759
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
