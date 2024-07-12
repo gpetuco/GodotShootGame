@@ -13,5 +13,5 @@ func updateScore():
 	print("updateScore do HUD!")
 	
 func setScore(score: int):
-	scoreLabel.text = "A - move para esquerda\n D - move para direita \nW - mira para cima \nS - se abaixa \nR - recarrega \nF - Atira\nEspaço - pula"
+	scoreLabel.text = "P - ATAQUE INIMIGO\nA - move para esquerda\n D - move para direita \nW - mira para cima \nS - se abaixa \nR - recarrega \nF - Atira\nEspaço - pula"
 	ammo.text = str(score)
